@@ -47,7 +47,7 @@ public class CategoryManagerController {
 
     @RequestMapping(value="update_category_name.do",method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse updateCategoryName(HttpSession session,String categoryName,Integer categoryId) {
+    public ServerResponse updateCategoryName(HttpSession session,String categoryNameNew,Integer categoryId) {
         //确认是否登录
         User user = (User) session.getAttribute(Const.CURRENT_USER);
         if (user == null) {
@@ -58,6 +58,39 @@ public class CategoryManagerController {
             return ServerResponse.createByErrorMessage("您没有管理员权限");
         }
         //add 逻辑
-        return iCategoryService.addCategory(categoryName, parentId);
+        return iCategoryService.updateCategoryName(categoryNameNew, categoryId);
+    }
+
+    @RequestMapping(value="get_children_category.do",method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse getChildrenCategory(HttpSession session,Integer parentId) {
+        //确认是否登录
+        User user = (User) session.getAttribute(Const.CURRENT_USER);
+        if (user == null) {
+            return ServerResponse.createByErrorMessage("您还未登录,请先登录");
+        }
+        //确认是否管理员
+        if (!iUserService.checkAdminRole(user).isSuccess()) {
+            return ServerResponse.createByErrorMessage("您没有管理员权限");
+        }
+        //add 逻辑
+        return iCategoryService.getChildrenCategory(parentId);
+    }
+
+
+    @RequestMapping(value="get_deep_category.do",method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse getChildrenAndDeepChildrenCategory(HttpSession session,Integer categoryId) {
+        //确认是否登录
+        User user = (User) session.getAttribute(Const.CURRENT_USER);
+        if (user == null) {
+            return ServerResponse.createByErrorMessage("您还未登录,请先登录");
+        }
+        //确认是否管理员
+        if (!iUserService.checkAdminRole(user).isSuccess()) {
+            return ServerResponse.createByErrorMessage("您没有管理员权限");
+        }
+        //add 逻辑
+        return iCategoryService.getDeepChildrenCategory(categoryId);
     }
 }

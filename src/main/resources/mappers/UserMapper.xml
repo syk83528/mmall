@@ -175,7 +175,7 @@
   
   <select id="selectQuestionByUsername" parameterType="string" resultType="string" >
     SELECT
-    qusetion
+    question
     FROM mmall_user
     WHERE
     username = #{username}
