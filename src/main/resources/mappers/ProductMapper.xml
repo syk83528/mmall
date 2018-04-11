@@ -198,4 +198,14 @@
     </where>
 
   </select>
+
+  <select id="getProductAAAAByProductId" parameterType="integer" resultType="java.util.HashMap">
+    select
+    p.id,c.name
+    from mmall_product as p
+    left join mmall_category as c
+    on p.category_id = c.id
+    where p.id >= #{id}
+  </select>
+
 </mapper>

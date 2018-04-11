@@ -126,8 +126,12 @@ public class ProductServiceImpl implements IProductService{
 
         List<Product> products = productMapper.selectSearchProductList(productName, productId);
 
+        return  null;
 
     }
+
+
+
 
 
     private ProductListVo assembleProductListVo(Product product){
@@ -170,3 +174,5 @@ public class ProductServiceImpl implements IProductService{
         return productDetailVo;
     }
 }
+
+

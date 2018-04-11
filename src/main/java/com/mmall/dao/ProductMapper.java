@@ -4,6 +4,7 @@ import com.mmall.pojo.Product;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ProductMapper {
     int deleteByPrimaryKey(Integer id);
@@ -21,4 +22,7 @@ public interface ProductMapper {
     List<Product> selectProductList();
 
     List<Product> selectSearchProductList(@Param("productName") String productName, @Param("productId")Integer productId);
+
+    List<Map<String,Object>> getProductAAAAByProductId(Integer productId);
+
 }
