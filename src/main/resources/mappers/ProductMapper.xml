@@ -201,7 +201,7 @@
 
   <select id="getProductAAAAByProductId" parameterType="integer" resultType="java.util.HashMap">
     select
-    p.id,c.name
+    p.name as name,p.id,c.name as categoryName
     from mmall_product as p
     left join mmall_category as c
     on p.category_id = c.id

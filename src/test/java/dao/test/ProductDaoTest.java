@@ -1,6 +1,7 @@
 package dao.test;
 
 import com.mmall.dao.ProductMapper;
+import com.mmall.pojo.Product;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,14 @@ public class ProductDaoTest extends TestBase {
     public void testDao(){
 
         List<Map<String, Object>> products = productMapper.getProductAAAAByProductId(26);
+
+        for (Map<String, Object> map :
+                products) {
+            Integer id = (Integer) map.get("id");
+            Product product = productMapper.selectByPrimaryKey(id);
+            map.put("myProduct",product);
+
+        }
         System.out.println(products);
     }
 }
