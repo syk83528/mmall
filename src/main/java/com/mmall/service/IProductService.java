@@ -13,4 +13,6 @@ public interface IProductService {
     ServerResponse<String> setSaleStatus(Integer productId,Integer status);
     ServerResponse<ProductDetailVo> managerProductDetail(Integer productId);
     ServerResponse getProductList(Integer pageNum,Integer pageSize);
+
+    ServerResponse getSykProduct();
 }

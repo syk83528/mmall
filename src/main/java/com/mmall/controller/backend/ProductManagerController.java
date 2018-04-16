@@ -111,4 +111,12 @@ public class ProductManagerController {
 
         return null;
     }
+
+
+    @RequestMapping(value="getSykProduct.do",method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse getSykProduct() {
+
+        return iProductService.getSykProduct();
+    }
 }

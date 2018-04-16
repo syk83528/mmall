@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by syk on 2018/4/9.
@@ -172,6 +173,21 @@ public class ProductServiceImpl implements IProductService{
         productDetailVo.setCreateTime(DateTimeUtil.dateToStr(product.getCreateTime()));
         productDetailVo.setUpdateTime(DateTimeUtil.dateToStr(product.getUpdateTime()));
         return productDetailVo;
+    }
+
+
+    public ServerResponse getSykProduct() {
+
+        List<Map<String, Object>> products = productMapper.getProductAAAAByProductId(26);
+
+        for (Map<String, Object> map :
+                products) {
+            Integer id = (Integer) map.get("id");
+            Product product = productMapper.selectByPrimaryKey(id);
+            map.put("myProduct",product);
+
+        }
+        return ServerResponse.createBySuccess("成功",products);
     }
 }
 
