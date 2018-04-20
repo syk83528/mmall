@@ -41,14 +41,14 @@ public class ShippingController {
      * */
     @RequestMapping(value = "delete.do", method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse delete(HttpSession session, Integer shippinId) {
+    public ServerResponse delete(HttpSession session, Integer shippingId) {
         //判断登录权限
         //确认是否登录
         User user = (User) session.getAttribute(Const.CURRENT_USER);
         if (user == null) {
             return ServerResponse.createByErrorMessage("您还未登录,请先登录");
         }
-        return iShippingService.delete(user.getId(), shippinId);
+        return iShippingService.delete(user.getId(), shippingId);
     }
     /*
      * 更新地址
