@@ -12,7 +12,7 @@
     <title>Bootstrap 101 Template</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="js/bootstrap-3.3.7-dist/css/bootstrap.css">>
+    <link rel="stylesheet" href="js/bootstrap-3.3.7-dist/css/bootstrap.css">
     <link rel="stylesheet" href="js/bootstrap-3.3.7-dist/css/bootstrap-theme.css">
 
     <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
@@ -30,7 +30,7 @@
         <label class="col">用户名</label><input class="col-">
     </div>
     <div class="row">
-
+        <label class="col">密码</label><input class="col-">
     </div>
 </div>
 
