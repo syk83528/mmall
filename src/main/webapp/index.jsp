@@ -23,10 +23,9 @@
     <%--<![endif]-->--%>
     <style type="text/less" >
         .container-fluid {
-            text-align: center;
             .row {
                 margin: 0 auto;
-                label {
+                span {
                     width: 60px;
                 }
             }
@@ -36,16 +35,18 @@
 <body>
 
 <div class="container-fluid">
-    <h1>你好，世界！</h1>
-    <div class="row input-group">
-            <input type="text" class="form-control" placeholder="请输入用户名" aria-describedby="basic-addon2">
-    </div>
-    <div class="row input-group">
-        <input type="password" class="form-control" placeholder="请输入密码" aria-describedby="basic-addon2">
-    </div>
-    <div class="col-xs-12">
-        <button class="btn btn-success">提交</button>
-    </div>
+    <h1>syk登录系统</h1>
+    <form action="home.jsp" method="post">
+        <div class="form-group">
+            <label for="exampleInputEmail1">用户名</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入用户名">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">密码</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入密码">
+        </div>
+        <button type="submit" class="btn btn-default">登录</button>
+    </form>
 </div>
 
 
