@@ -36,14 +36,14 @@
 
 <div class="container-fluid">
     <h1>syk登录系统</h1>
-    <form action="home.jsp" method="post">
+    <form action="/user/login.do" method="post">
         <div class="form-group">
             <label for="exampleInputEmail1">用户名</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入用户名">
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入用户名" name="username">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">密码</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入密码">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入密码" name="password">
         </div>
         <button type="submit" class="btn btn-default">登录</button>
     </form>
